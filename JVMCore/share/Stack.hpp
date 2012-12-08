@@ -74,10 +74,10 @@ bool Stack<STACK_ELEMENT>::allocateSpace()
 		}
 		else
 		{
-			this->stackSize_ = STACK_STEP_SIZE;
-			this->stack_ = new STACK_ELEMENT[this->stackSize_];
+			this->stack_ = new STACK_ELEMENT[STACK_STEP_SIZE];
 			if(this->stack_ == NULL)
 				return false;
+			this->stackSize_ = STACK_STEP_SIZE;
 		}
 	}
 	else
