@@ -20,7 +20,7 @@ CPP_DEPS += \
 share/zlib/%.o: ../share/zlib/%.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C++ Compiler'
-	g++ -D_DEBUG -I"/home/liwei/works/jvm/dev/JVMCore/java" -I"/home/liwei/works/jvm/dev/JVMCore/runtime" -I"/home/liwei/works/jvm/dev/JVMCore/share" -I"/home/liwei/works/jvm/dev/JVMCore/share/zlib" -I"/home/liwei/works/jvm/dev/JVMCore/os" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
+	g++ -D_DEBUG -I"/home/liwei/git/JVM/JVMCore/java" -I"/home/liwei/git/JVM/JVMCore/runtime" -I"/home/liwei/git/JVM/JVMCore/share" -I"/home/liwei/git/JVM/JVMCore/share/zlib" -I"/home/liwei/git/JVM/JVMCore/os" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
