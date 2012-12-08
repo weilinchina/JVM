@@ -15,11 +15,11 @@ ifneq ($(MAKECMDGOALS),clean)
 ifneq ($(strip $(C++_DEPS)),)
 -include $(C++_DEPS)
 endif
-ifneq ($(strip $(CC_DEPS)),)
--include $(CC_DEPS)
-endif
 ifneq ($(strip $(C_DEPS)),)
 -include $(C_DEPS)
+endif
+ifneq ($(strip $(CC_DEPS)),)
+-include $(CC_DEPS)
 endif
 ifneq ($(strip $(CPP_DEPS)),)
 -include $(CPP_DEPS)
@@ -40,23 +40,23 @@ endif
 all: JVMTest
 
 dependents:
-	-cd /home/liwei/works/jvm/dev/JVMCore/Debug && $(MAKE) all
+	-cd /home/liwei/git/JVM/JVMCore/Debug && $(MAKE) clean all
 
 # Tool invocations
-JVMTest: $(OBJS) $(USER_OBJS) /home/liwei/works/jvm/dev/JVMCore/Debug/libJVMCore.a
+JVMTest: $(OBJS) $(USER_OBJS) /home/liwei/git/JVM/JVMCore/Debug/libJVMCore.a
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C++ Linker'
-	g++ -L"/home/liwei/works/jvm/dev/JVMCore/Debug" -L/usr/local/lib -o "JVMTest" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++ -L"/home/liwei/git/JVM/JVMCore/Debug" -L/usr/local/lib -o "JVMTest" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(OBJS)$(C++_DEPS)$(EXECUTABLES)$(CC_DEPS)$(C_DEPS)$(CPP_DEPS)$(CXX_DEPS)$(C_UPPER_DEPS) JVMTest
+	-$(RM) $(OBJS)$(C++_DEPS)$(C_DEPS)$(CC_DEPS)$(CPP_DEPS)$(EXECUTABLES)$(CXX_DEPS)$(C_UPPER_DEPS) JVMTest
 	-@echo ' '
 
 .PHONY: all clean dependents
 .SECONDARY:
-/home/liwei/works/jvm/dev/JVMCore/Debug/libJVMCore.a:
+/home/liwei/git/JVM/JVMCore/Debug/libJVMCore.a:
 
 -include ../makefile.targets
